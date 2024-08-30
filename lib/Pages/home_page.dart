@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
       // AppBar
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 8, 39, 16),
+        automaticallyImplyLeading: false,
         title: const Text(
           "WhatsApp",
           style: TextStyle(
@@ -138,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                     Navigator.pushNamed(context, "/indiechatpage", arguments: {
                       "name": message["name"],
                       "image": message["image"],
-                      });
+                    });
                   },
                   child: ListTile(
                     leading: CircleAvatar(

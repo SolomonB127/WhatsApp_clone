@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:image_picker/image_picker.dart';
+import 'package:open_filex/open_filex.dart';
 import 'package:uuid/uuid.dart';
 
 class ChatPage extends StatefulWidget {
@@ -23,6 +25,14 @@ class _ChatPageState extends State<ChatPage> {
     setState(() {
       _messages.insert(0, message);
     });
+  }
+
+  void _handleImageSelection() async {
+    final result = await ImagePicker().pickImage(
+      imageQuality: 70,
+      maxWidth: 1440,
+      source: ImageSource.gallery,
+    );
   }
 
   void _handleSendPressed(types.PartialText message) {
